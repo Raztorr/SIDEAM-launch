@@ -4,7 +4,7 @@
 echo revisando si git esta instalado
 echo.
 git --version && (
-  goto :git-installchoice
+  goto :inicio
 ) || (
   goto :git-installchoice
 )
@@ -16,6 +16,7 @@ echo Instalar git (solo seleccionar no si no esta instalado)?
 echo.
 set choice=
 set /p choice=Escribe s para SI o n para NO.
+echo.
 if not '%choice%'=='' set choice=%choice:~0,1%
 if '%choice%'=='s' goto :git-install
 if '%choice%'=='n' goto :inicio
@@ -26,6 +27,7 @@ cls
 echo clonar repositorio?
 set choice=
 set /p choice=Escribe s para SI o n para NO.
+echo.
 if not '%choice%'=='' set choice=%choice:~0,1%
 if '%choice%'=='s' goto :git
 if '%choice%'=='n' goto :selecpyt
@@ -57,10 +59,11 @@ goto :slecpyt
 
 
 :selecpyt
-echo.
+cls
 echo instalar pytorch?
 set choice=
 set /p choice=Escribe s para SI o n para NO.
+echo.
 if not '%choice%'=='' set choice=%choice:~0,1%
 if '%choice%'=='s' goto :pytorch
 if '%choice%'=='n' goto :selecrequ
@@ -79,6 +82,7 @@ echo Instalar requirements.txt?
 echo.
 set choice=
 set /p choice=Escribe s para SI o n para NO.
+echo.
 if not '%choice%'=='' set choice=%choice:~0,1%
 if '%choice%'=='s' goto :requirements.txt
 if '%choice%'=='n' goto :selecinicio
@@ -94,13 +98,15 @@ echo Iniciar demo?
 echo.
 set choice=
 set /p choice=Escribe s para SI o n para NO.
+echo.
 if not '%choice%'=='' set choice=%choice:~0,1%
 if '%choice%'=='s' goto :iniciar
 if '%choice%'=='n' goto :end
 
 :iniciar
 echo iniciando test2.py
-py test2.py
+py SIDEAM/test2.py
+pause
 goto :end
 
 :end
